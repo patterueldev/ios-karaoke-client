@@ -48,7 +48,7 @@ class SongListViewModel: ObservableObject {
         Task {
             do {
                 let songs = try await getSongs.execute(
-                    limit: 50,
+                    limit: 0,
                     offset: 0,
                     filter: searchText
                 ).map { SongWrapper($0) }

@@ -7,7 +7,7 @@
 
 import Foundation
 
-struct DependencyManager {
+class DependencyManager {
     private static var _shared: DependencyManager!
     static func setup(environment: Environment) {
         _shared = DependencyManager(environment: environment)
@@ -36,15 +36,17 @@ struct DependencyManager {
     }()
     
     lazy var apiManager: APIManager = {
+        var apiManager = DefaultAPIManager(encoder: encoder, decoder: decoder)
         switch environment {
         case .preview:
-            fatalError()
-        case .app:
-            DefaultAPIManager(encoder: encoder, decoder: decoder)
+            try! apiManager.setBaseURL("http://localhost:3000")
+            break;
+        default: break;
         }
+        return apiManager
     }()
     
-    lazy var karaokeDataSource: KaraokeDataSource = {
+    lazy var karaokeDataSource: KaraokeRepository = {
         switch environment {
         case .preview:
             return DemoKaraokeDataSource()

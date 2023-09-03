@@ -7,15 +7,25 @@
 
 import Foundation
 
-class RestKaraokeDataSource: KaraokeDataSource {
+class RestKaraokeDataSource: KaraokeRepository {
     let apiManager: APIManager
     
     init(apiManager: APIManager) {
         self.apiManager = apiManager
     }
     
-    func getSongList() async throws -> [Song] {
-        let response: GenericResponse<[RestSong]> = try await apiManager.getRequest(path: .songs)
+    func getSongList(limit: Int?, offset: Int?, filter: String?) async throws -> [Song] {
+        var urlParams: [String: String] = [:]
+        if let limit = limit {
+            urlParams["limit"] = String(limit)
+        }
+        if let offset = offset {
+            urlParams["offset"] = String(offset)
+        }
+        if let filter = filter {
+            urlParams["filter"] = filter
+        }
+        let response: GenericResponse<[RestSong]> = try await apiManager.getRequest(path: .songs, urlParams: urlParams)
         return response.data
     }
     

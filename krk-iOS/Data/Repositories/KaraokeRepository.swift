@@ -7,8 +7,8 @@
 
 import Foundation
 
-protocol KaraokeDataSource {
-    func getSongList() async throws -> [Song]
+protocol KaraokeRepository {
+    func getSongList(limit: Int?, offset: Int?, filter: String?) async throws -> [Song]
     func reserveSong(_ song: Song) async throws
     func getReservedSongs() async throws -> [Song]
     func playNext() async throws

@@ -12,9 +12,9 @@ protocol ReserveSongUseCase {
 }
 
 class DefaultReserveSongUseCase: ReserveSongUseCase {
-    let dataSource: KaraokeDataSource
+    let dataSource: KaraokeRepository
     
-    init(dataSource: KaraokeDataSource) {
+    init(dataSource: KaraokeRepository) {
         self.dataSource = dataSource
     }
     

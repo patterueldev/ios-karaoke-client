@@ -17,6 +17,9 @@ protocol APIManager {
     var encoder: JSONEncoder { get }
     var decoder: JSONDecoder { get }
     
+    func setBaseURL(_ url: String) throws
+    
+    func checkIfServerIsSetup() async throws -> Bool
     func makeRequest<T: Codable>(
         path: APIPath,
         method: APIMethods,
@@ -81,7 +84,7 @@ class DefaultAPIManager: APIManager {
         self.decoder = decoder
     }
     
-    private var baseURL: String = "http://localhost:3000"
+    private var baseURL: String = ""
   
     func setBaseURL(_ url: String) throws {
         guard let _ = URL(string: url) else {
@@ -95,6 +98,17 @@ class DefaultAPIManager: APIManager {
             throw APIError.invalidURL
         }
         return baseURL
+    }
+    
+    func checkIfServerIsSetup() async throws -> Bool {
+        do {
+            let response: GenericResponse<String> = try await getRequest(path: .index)
+            let message = response.data
+            return message == "Welcome!"
+        } catch {
+            if baseURL.isEmpty { return false }
+            throw APIError.requestFailed(error)
+        }
     }
     
     func makeRequest<T: Codable>(
@@ -142,6 +156,7 @@ class DefaultAPIManager: APIManager {
 }
 
 enum APIPath: String {
+    case index = ""
     case songs
     case reserve
 }

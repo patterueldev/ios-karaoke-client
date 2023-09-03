@@ -14,9 +14,8 @@ private func notImplemented() -> Error {
 }
 
 
-class DemoKaraokeDataSource: KaraokeDataSource {
-    
-    func getSongList() async throws -> [Song] {
+class DemoKaraokeDataSource: KaraokeRepository {
+    func getSongList(limit: Int?, offset: Int?, filter: String?) async throws -> [Song] {
         return [
             DemoSong(identifier: "1", title: "Song 1", artist: "Artist 1", image: nil, containsLyrics: true, containsVoice: true),
             DemoSong(identifier: "2", title: "Song 2", artist: "Artist 2", image: nil, containsLyrics: true, containsVoice: true),

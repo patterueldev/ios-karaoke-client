@@ -15,9 +15,7 @@ struct krk_iOSApp: App {
     
     var body: some Scene {
         WindowGroup {
-            SongListView(
-                environment: .app
-            )
+            SongListView()
         }
     }
 }

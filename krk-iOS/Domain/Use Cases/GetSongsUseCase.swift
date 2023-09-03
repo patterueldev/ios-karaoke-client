@@ -8,18 +8,22 @@
 import Foundation
 
 protocol GetSongsUseCase {
-    func execute() async throws -> [Song]
+    func execute(limit: Int?, offset: Int?, filter: String?) async throws -> [Song]
 }
 
 class DefaultGetSongsUseCase: GetSongsUseCase {
-    let dataSource: KaraokeDataSource
+    let dataSource: KaraokeRepository
     
-    init(dataSource: KaraokeDataSource) {
+    init(dataSource: KaraokeRepository) {
         self.dataSource = dataSource
     }
     
-    func execute() async throws -> [Song] {
-        return try await dataSource.getSongList()
+    func execute(limit: Int?, offset: Int?, filter: String?) async throws -> [Song] {
+        return try await dataSource.getSongList(
+            limit: limit,
+            offset: offset,
+            filter: filter
+        )
     }
 }
 

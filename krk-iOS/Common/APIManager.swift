@@ -159,6 +159,7 @@ enum APIPath: String {
     case index = ""
     case songs
     case reserve
+    case reserved
 }
 
 enum APIMethods: String {

@@ -11,15 +11,15 @@ protocol GetSongsUseCase {
     func execute(limit: Int?, offset: Int?, filter: String?) async throws -> [Song]
 }
 
-class DefaultGetSongsUseCase: GetSongsUseCase {
-    let dataSource: KaraokeRepository
+struct DefaultGetSongsUseCase: GetSongsUseCase {
+    let repository: KaraokeRepository
     
-    init(dataSource: KaraokeRepository) {
-        self.dataSource = dataSource
+    init(repository: KaraokeRepository) {
+        self.repository = repository
     }
     
     func execute(limit: Int?, offset: Int?, filter: String?) async throws -> [Song] {
-        return try await dataSource.getSongList(
+        return try await repository.getSongList(
             limit: limit,
             offset: offset,
             filter: filter

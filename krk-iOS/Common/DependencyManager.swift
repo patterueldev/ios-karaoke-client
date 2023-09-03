@@ -46,7 +46,7 @@ class DependencyManager {
         return apiManager
     }()
     
-    lazy var karaokeDataSource: KaraokeRepository = {
+    lazy var karaokeRepository: KaraokeRepository = {
         switch environment {
         case .preview:
             return DemoKaraokeDataSource()
@@ -55,8 +55,9 @@ class DependencyManager {
         }
     }()
     
-    lazy var getSongsUseCase: GetSongsUseCase = DefaultGetSongsUseCase(dataSource: karaokeDataSource)
-    lazy var reserveSongUseCase: ReserveSongUseCase = DefaultReserveSongUseCase(dataSource: karaokeDataSource)
+    lazy var getSongsUseCase: GetSongsUseCase = DefaultGetSongsUseCase(repository: karaokeRepository)
+    lazy var reserveSongUseCase: ReserveSongUseCase = DefaultReserveSongUseCase(repository: karaokeRepository)
+    lazy var getReservedSongsUseCase: GetReservedSongsUseCase = DefaultGetReservedSongsUseCase(repository: karaokeRepository)
     
     // MARK: - Declarations
     enum Environment {

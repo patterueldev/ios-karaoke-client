@@ -11,14 +11,14 @@ protocol ReserveSongUseCase {
     func execute(song: Song) async throws
 }
 
-class DefaultReserveSongUseCase: ReserveSongUseCase {
-    let dataSource: KaraokeRepository
+struct DefaultReserveSongUseCase: ReserveSongUseCase {
+    let repository: KaraokeRepository
     
-    init(dataSource: KaraokeRepository) {
-        self.dataSource = dataSource
+    init(repository: KaraokeRepository) {
+        self.repository = repository
     }
     
     func execute(song: Song) async throws {
-        try await dataSource.reserveSong(song)
+        try await repository.reserveSong(song)
     }
 }

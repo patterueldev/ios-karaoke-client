@@ -34,8 +34,9 @@ class RestKaraokeDataSource: KaraokeRepository {
         print("Reserve song response \(response)")
     }
     
-    func getReservedSongs() async throws -> [Song] {
-        throw notImplemented()
+    func getReservedSongs() async throws -> [ReservedSong] {
+        let response: GenericResponse<[RestReservedSong]> = try await apiManager.getRequest(path: .reserved)
+        return response.data
     }
     
     func playNext() async throws {

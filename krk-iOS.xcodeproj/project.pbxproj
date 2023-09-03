@@ -10,6 +10,11 @@
 		4338DA182AA474CB00F8089F /* ScanServerView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 4338DA172AA474CB00F8089F /* ScanServerView.swift */; };
 		4338DA1A2AA4758000F8089F /* QRScannerController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 4338DA192AA4758000F8089F /* QRScannerController.swift */; };
 		4338DA1E2AA47E5000F8089F /* ScanServerViewModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = 4338DA1D2AA47E5000F8089F /* ScanServerViewModel.swift */; };
+		4338DA212AA4C67600F8089F /* ReservedSongListView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 4338DA202AA4C67600F8089F /* ReservedSongListView.swift */; };
+		4338DA232AA4C68700F8089F /* ReservedSongListViewModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = 4338DA222AA4C68700F8089F /* ReservedSongListViewModel.swift */; };
+		4338DA252AA4C6BD00F8089F /* GetReservedSongsUseCase.swift in Sources */ = {isa = PBXBuildFile; fileRef = 4338DA242AA4C6BD00F8089F /* GetReservedSongsUseCase.swift */; };
+		4338DA272AA4C6D500F8089F /* ReservedSong.swift in Sources */ = {isa = PBXBuildFile; fileRef = 4338DA262AA4C6D500F8089F /* ReservedSong.swift */; };
+		4338DA292AA4C6FD00F8089F /* RestReservedSong.swift in Sources */ = {isa = PBXBuildFile; fileRef = 4338DA282AA4C6FD00F8089F /* RestReservedSong.swift */; };
 		435653BD2AA1A57800068353 /* krk_iOSApp.swift in Sources */ = {isa = PBXBuildFile; fileRef = 435653BC2AA1A57800068353 /* krk_iOSApp.swift */; };
 		435653BF2AA1A57800068353 /* ContentView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 435653BE2AA1A57800068353 /* ContentView.swift */; };
 		435653C12AA1A57B00068353 /* Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = 435653C02AA1A57B00068353 /* Assets.xcassets */; };
@@ -32,6 +37,11 @@
 		4338DA172AA474CB00F8089F /* ScanServerView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ScanServerView.swift; sourceTree = "<group>"; };
 		4338DA192AA4758000F8089F /* QRScannerController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = QRScannerController.swift; sourceTree = "<group>"; };
 		4338DA1D2AA47E5000F8089F /* ScanServerViewModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ScanServerViewModel.swift; sourceTree = "<group>"; };
+		4338DA202AA4C67600F8089F /* ReservedSongListView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ReservedSongListView.swift; sourceTree = "<group>"; };
+		4338DA222AA4C68700F8089F /* ReservedSongListViewModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ReservedSongListViewModel.swift; sourceTree = "<group>"; };
+		4338DA242AA4C6BD00F8089F /* GetReservedSongsUseCase.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = GetReservedSongsUseCase.swift; sourceTree = "<group>"; };
+		4338DA262AA4C6D500F8089F /* ReservedSong.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ReservedSong.swift; sourceTree = "<group>"; };
+		4338DA282AA4C6FD00F8089F /* RestReservedSong.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = RestReservedSong.swift; sourceTree = "<group>"; };
 		435653B92AA1A57800068353 /* krk-iOS.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = "krk-iOS.app"; sourceTree = BUILT_PRODUCTS_DIR; };
 		435653BC2AA1A57800068353 /* krk_iOSApp.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = krk_iOSApp.swift; sourceTree = "<group>"; };
 		435653BE2AA1A57800068353 /* ContentView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ContentView.swift; sourceTree = "<group>"; };
@@ -65,6 +75,7 @@
 		4338DA152AA4746500F8089F /* Application */ = {
 			isa = PBXGroup;
 			children = (
+				4338DA1F2AA4C65B00F8089F /* Reserved Songs */,
 				4338DA162AA4747900F8089F /* Scan Server */,
 				435653CA2AA1A6D200068353 /* Songs */,
 			);
@@ -79,6 +90,15 @@
 				4338DA192AA4758000F8089F /* QRScannerController.swift */,
 			);
 			path = "Scan Server";
+			sourceTree = "<group>";
+		};
+		4338DA1F2AA4C65B00F8089F /* Reserved Songs */ = {
+			isa = PBXGroup;
+			children = (
+				4338DA202AA4C67600F8089F /* ReservedSongListView.swift */,
+				4338DA222AA4C68700F8089F /* ReservedSongListViewModel.swift */,
+			);
+			path = "Reserved Songs";
 			sourceTree = "<group>";
 		};
 		435653B02AA1A57800068353 = {
@@ -142,6 +162,7 @@
 			isa = PBXGroup;
 			children = (
 				435653D22AA1A74500068353 /* GetSongsUseCase.swift */,
+				4338DA242AA4C6BD00F8089F /* GetReservedSongsUseCase.swift */,
 				43A3BF2E2AA4353A00E2B6E9 /* ReserveSongUseCase.swift */,
 			);
 			path = "Use Cases";
@@ -161,6 +182,7 @@
 			children = (
 				43A3BF292AA42D9700E2B6E9 /* Rest */,
 				435653D62AA1A7EE00068353 /* Song.swift */,
+				4338DA262AA4C6D500F8089F /* ReservedSong.swift */,
 			);
 			path = Entities;
 			sourceTree = "<group>";
@@ -196,6 +218,7 @@
 			isa = PBXGroup;
 			children = (
 				43A3BF2A2AA42DC700E2B6E9 /* RestSong.swift */,
+				4338DA282AA4C6FD00F8089F /* RestReservedSong.swift */,
 			);
 			path = Rest;
 			sourceTree = "<group>";
@@ -275,17 +298,22 @@
 				437E700B2AA1CCD6000BA276 /* DependencyManager.swift in Sources */,
 				4338DA182AA474CB00F8089F /* ScanServerView.swift in Sources */,
 				435653BF2AA1A57800068353 /* ContentView.swift in Sources */,
+				4338DA232AA4C68700F8089F /* ReservedSongListViewModel.swift in Sources */,
 				4338DA1A2AA4758000F8089F /* QRScannerController.swift in Sources */,
 				435653E02AA1AE2600068353 /* APIManager.swift in Sources */,
 				435653CE2AA1A6F500068353 /* SongListViewModel.swift in Sources */,
 				43A3BF2B2AA42DC800E2B6E9 /* RestSong.swift in Sources */,
 				4338DA1E2AA47E5000F8089F /* ScanServerViewModel.swift in Sources */,
+				4338DA252AA4C6BD00F8089F /* GetReservedSongsUseCase.swift in Sources */,
 				43A3BF282AA42D4D00E2B6E9 /* RestKaraokeDataSource.swift in Sources */,
 				435653DD2AA1AC0200068353 /* DemoKaraokeDataSource.swift in Sources */,
 				43A3BF2F2AA4353A00E2B6E9 /* ReserveSongUseCase.swift in Sources */,
 				435653D32AA1A74500068353 /* GetSongsUseCase.swift in Sources */,
 				435653CC2AA1A6E700068353 /* SongListView.swift in Sources */,
+				4338DA212AA4C67600F8089F /* ReservedSongListView.swift in Sources */,
 				43A3BF2D2AA4309900E2B6E9 /* StringExtensions.swift in Sources */,
+				4338DA272AA4C6D500F8089F /* ReservedSong.swift in Sources */,
+				4338DA292AA4C6FD00F8089F /* RestReservedSong.swift in Sources */,
 				435653BD2AA1A57800068353 /* krk_iOSApp.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;

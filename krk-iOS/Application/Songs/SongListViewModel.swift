@@ -20,6 +20,7 @@ class SongListViewModel: ObservableObject {
     }
     
     @Published var showsConnectToServer: Bool = false
+    @Published var showsReservedSongList: Bool = false
     @Published var songs: [SongWrapper] = []
     @Published var searchText: String = ""
     
@@ -50,7 +51,7 @@ class SongListViewModel: ObservableObject {
                     limit: 50,
                     offset: 0,
                     filter: searchText
-                ).map { SongWrapper(id: $0.identifier, song: $0) }
+                ).map { SongWrapper($0) }
                 await MainActor.run {
                     self.songs = songs
                 }
@@ -86,5 +87,10 @@ class SongListViewModel: ObservableObject {
     struct SongWrapper: Identifiable {
         let id: String
         let song: Song
+        
+        init(_ song: Song) {
+            self.id = song.identifier
+            self.song = song
+        }
     }
 }

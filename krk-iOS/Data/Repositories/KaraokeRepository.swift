@@ -10,7 +10,7 @@ import Foundation
 protocol KaraokeRepository {
     func getSongList(limit: Int?, offset: Int?, filter: String?) async throws -> [Song]
     func reserveSong(_ song: Song) async throws
-    func getReservedSongs() async throws -> [Song]
+    func getReservedSongs() async throws -> [ReservedSong]
     func playNext() async throws
     func cancelReservation(_ song: Song) async throws
 }

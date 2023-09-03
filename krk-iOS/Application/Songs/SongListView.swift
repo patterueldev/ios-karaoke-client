@@ -67,7 +67,9 @@ struct SongListView: View, ScanServerDelegate {
                     HStack {
                         Spacer()
                         
-                        Button(action: {}, label: {
+                        Button(action: {
+                            viewModel.showsReservedSongList.toggle()
+                        }, label: {
                             Image(systemName: "book.fill")
                                 .font(.system(size: 20))
                                 .foregroundColor(.white)
@@ -87,6 +89,8 @@ struct SongListView: View, ScanServerDelegate {
             viewModel.setup()
         }.sheet(isPresented: $viewModel.showsConnectToServer, content: {
             ScanServerView(delegate: self)
+        }).sheet(isPresented: $viewModel.showsReservedSongList, content: {
+            ReservedSongListView()
         })
     }
     

@@ -35,6 +35,8 @@ class DependencyManager {
         return decoder
     }()
     
+    lazy var netServiceBrowser: NetServiceBrowser = NetServiceBrowser()
+    
     lazy var apiManager: APIManager = {
         var apiManager = DefaultAPIManager(encoder: encoder, decoder: decoder)
         switch environment {
@@ -58,6 +60,8 @@ class DependencyManager {
     lazy var getSongsUseCase: GetSongsUseCase = DefaultGetSongsUseCase(repository: karaokeRepository)
     lazy var reserveSongUseCase: ReserveSongUseCase = DefaultReserveSongUseCase(repository: karaokeRepository)
     lazy var getReservedSongsUseCase: GetReservedSongsUseCase = DefaultGetReservedSongsUseCase(repository: karaokeRepository)
+    lazy var cancelReservedSongUseCase: CancelReservedSongUseCase = DefaultCancelReservedSongUseCase(repository: karaokeRepository)
+    lazy var stopCurrentlyPlayingUseCase: StopCurrentlyPlayingUseCase = DefaultStopCurrentlyPlayingUseCase(repository: karaokeRepository)
     
     // MARK: - Declarations
     enum Environment {

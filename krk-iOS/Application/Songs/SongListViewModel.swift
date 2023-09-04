@@ -63,7 +63,7 @@ class SongListViewModel: ObservableObject {
     
     func runSearch() {
         searchTimer?.invalidate()
-        searchTimer = Timer.scheduledTimer(withTimeInterval: 0.5, repeats: false, block: { _ in
+        searchTimer = Timer.scheduledTimer(withTimeInterval: 0.1, repeats: false, block: { _ in
             self.loadSongs()
         })
     }

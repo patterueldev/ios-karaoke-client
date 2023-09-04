@@ -9,11 +9,16 @@ import SwiftUI
 
 class ReservedSongListViewModel: ObservableObject {
     private let getReservedSongs: GetReservedSongsUseCase
+    private let cancelReservedSong: CancelReservedSongUseCase
+    private let stopCurrentSong: StopCurrentlyPlayingUseCase
     
     init() {
         let dependencyManager = DependencyManager.shared
         self.getReservedSongs = dependencyManager.getReservedSongsUseCase
+        self.cancelReservedSong = dependencyManager.cancelReservedSongUseCase
+        self.stopCurrentSong = dependencyManager.stopCurrentlyPlayingUseCase
     }
+    
     @Published var songs: [ReservedSongWrapper] = []
     
     func loadSongs() {
@@ -25,6 +30,30 @@ class ReservedSongListViewModel: ObservableObject {
                 }
             } catch {
                 print("Error: \(error.localizedDescription)")
+            }
+        }
+    }
+    
+    func cancelSong(_ song: ReservedSongWrapper) {
+        Task {
+            do {
+                try await cancelReservedSong.execute(song: song.reservedSong)
+                await MainActor.run {
+                    self.loadSongs()
+                }
+            } catch {
+                print("Error: \(error.localizedDescription)")
+            }
+        }
+    }
+    
+    func stopCurrent() {
+        Task {
+            do {
+                try await stopCurrentSong.execute()
+                await MainActor.run {
+                    self.loadSongs()
+                }
             }
         }
     }

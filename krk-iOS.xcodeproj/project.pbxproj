@@ -26,6 +26,8 @@
 		435653DA2AA1A8C200068353 /* KaraokeRepository.swift in Sources */ = {isa = PBXBuildFile; fileRef = 435653D92AA1A8C200068353 /* KaraokeRepository.swift */; };
 		435653DD2AA1AC0200068353 /* DemoKaraokeDataSource.swift in Sources */ = {isa = PBXBuildFile; fileRef = 435653DC2AA1AC0200068353 /* DemoKaraokeDataSource.swift */; };
 		435653E02AA1AE2600068353 /* APIManager.swift in Sources */ = {isa = PBXBuildFile; fileRef = 435653DF2AA1AE2600068353 /* APIManager.swift */; };
+		435F9FE32AA5B20500624122 /* CancelReservedSongUseCase.swift in Sources */ = {isa = PBXBuildFile; fileRef = 435F9FE22AA5B20500624122 /* CancelReservedSongUseCase.swift */; };
+		435F9FE72AA5CD5400624122 /* StopCurrentlyPlayingUseCase.swift in Sources */ = {isa = PBXBuildFile; fileRef = 435F9FE62AA5CD5400624122 /* StopCurrentlyPlayingUseCase.swift */; };
 		437E700B2AA1CCD6000BA276 /* DependencyManager.swift in Sources */ = {isa = PBXBuildFile; fileRef = 437E700A2AA1CCD6000BA276 /* DependencyManager.swift */; };
 		43A3BF282AA42D4D00E2B6E9 /* RestKaraokeDataSource.swift in Sources */ = {isa = PBXBuildFile; fileRef = 43A3BF272AA42D4D00E2B6E9 /* RestKaraokeDataSource.swift */; };
 		43A3BF2B2AA42DC800E2B6E9 /* RestSong.swift in Sources */ = {isa = PBXBuildFile; fileRef = 43A3BF2A2AA42DC700E2B6E9 /* RestSong.swift */; };
@@ -54,6 +56,8 @@
 		435653D92AA1A8C200068353 /* KaraokeRepository.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = KaraokeRepository.swift; sourceTree = "<group>"; };
 		435653DC2AA1AC0200068353 /* DemoKaraokeDataSource.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = DemoKaraokeDataSource.swift; sourceTree = "<group>"; };
 		435653DF2AA1AE2600068353 /* APIManager.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = APIManager.swift; sourceTree = "<group>"; };
+		435F9FE22AA5B20500624122 /* CancelReservedSongUseCase.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CancelReservedSongUseCase.swift; sourceTree = "<group>"; };
+		435F9FE62AA5CD5400624122 /* StopCurrentlyPlayingUseCase.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = StopCurrentlyPlayingUseCase.swift; sourceTree = "<group>"; };
 		437E700A2AA1CCD6000BA276 /* DependencyManager.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = DependencyManager.swift; sourceTree = "<group>"; };
 		43A3BF272AA42D4D00E2B6E9 /* RestKaraokeDataSource.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = RestKaraokeDataSource.swift; sourceTree = "<group>"; };
 		43A3BF2A2AA42DC700E2B6E9 /* RestSong.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = RestSong.swift; sourceTree = "<group>"; };
@@ -164,6 +168,8 @@
 				435653D22AA1A74500068353 /* GetSongsUseCase.swift */,
 				4338DA242AA4C6BD00F8089F /* GetReservedSongsUseCase.swift */,
 				43A3BF2E2AA4353A00E2B6E9 /* ReserveSongUseCase.swift */,
+				435F9FE22AA5B20500624122 /* CancelReservedSongUseCase.swift */,
+				435F9FE62AA5CD5400624122 /* StopCurrentlyPlayingUseCase.swift */,
 			);
 			path = "Use Cases";
 			sourceTree = "<group>";
@@ -298,6 +304,7 @@
 				437E700B2AA1CCD6000BA276 /* DependencyManager.swift in Sources */,
 				4338DA182AA474CB00F8089F /* ScanServerView.swift in Sources */,
 				435653BF2AA1A57800068353 /* ContentView.swift in Sources */,
+				435F9FE72AA5CD5400624122 /* StopCurrentlyPlayingUseCase.swift in Sources */,
 				4338DA232AA4C68700F8089F /* ReservedSongListViewModel.swift in Sources */,
 				4338DA1A2AA4758000F8089F /* QRScannerController.swift in Sources */,
 				435653E02AA1AE2600068353 /* APIManager.swift in Sources */,
@@ -305,6 +312,7 @@
 				43A3BF2B2AA42DC800E2B6E9 /* RestSong.swift in Sources */,
 				4338DA1E2AA47E5000F8089F /* ScanServerViewModel.swift in Sources */,
 				4338DA252AA4C6BD00F8089F /* GetReservedSongsUseCase.swift in Sources */,
+				435F9FE32AA5B20500624122 /* CancelReservedSongUseCase.swift in Sources */,
 				43A3BF282AA42D4D00E2B6E9 /* RestKaraokeDataSource.swift in Sources */,
 				435653DD2AA1AC0200068353 /* DemoKaraokeDataSource.swift in Sources */,
 				43A3BF2F2AA4353A00E2B6E9 /* ReserveSongUseCase.swift in Sources */,

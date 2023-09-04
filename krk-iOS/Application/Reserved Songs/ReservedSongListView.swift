@@ -48,14 +48,20 @@ struct ReservedSongListView: View {
                         
                         Spacer()
                         
+                        Button(action: {
+                            if song.reservedSong.currentlyPlaying {
+                                viewModel.stopCurrent()
+                            } else {
+                                viewModel.cancelSong(song)
+                            }
+                        }, label: {
+                            let icon = song.reservedSong.currentlyPlaying ? "stop.fill" : "trash"
+                            
+                            Image(systemName: icon)
+                                .font(.system(size: 20))
+                                .foregroundColor(.blue.opacity(0.75))
+                        })
                         if !song.reservedSong.currentlyPlaying {
-                            Button(action: {
-        //                        viewModel.reserveSong(identifier: song.id)
-                            }, label: {
-                                Image(systemName: "trash")
-                                    .font(.system(size: 20))
-                                    .foregroundColor(.blue.opacity(0.75))
-                            })
                         }
                     }
                 }

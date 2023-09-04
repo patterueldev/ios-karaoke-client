@@ -43,11 +43,19 @@ class RestKaraokeDataSource: KaraokeRepository {
         throw notImplemented()
     }
     
-    func cancelReservation(_ song: Song) async throws {
-        throw notImplemented()
+    func cancelReservation(_ song: ReservedSong) async throws {
+        let response: GenericResponse<String> = try await apiManager.deleteRequest(
+            path: .cancelReservation(id: song.identifier)
+        )
+        print("Cancel reservation response \(response)")
     }
     
-    
+    func stopCurrentlyPlaying() async throws {
+        let response: GenericResponse<String> = try await apiManager.deleteRequest(
+            path: .stopCurrent
+        )
+        print("Stop current response \(response)")
+    }
 }
 
 private struct ReserveSongParams: Codable {

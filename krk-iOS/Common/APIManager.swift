@@ -51,7 +51,15 @@ extension APIManager {
         )
     }
     
-    
+    func deleteRequest<T: Codable>(path: APIPath, urlParams: [String: String]? = nil) async throws -> T {
+        return try await makeRequest(
+            path: path,
+            method: .delete,
+            headers: nil,
+            urlParams: urlParams,
+            body: nil
+        )
+    }
     
     func makeRequest<T: Codable>(path: APIPath) async throws -> T {
         return try await makeRequest(
@@ -84,7 +92,7 @@ class DefaultAPIManager: APIManager {
         self.decoder = decoder
     }
     
-    private var baseURL: String = ""
+    private var baseURL: String = "http://Saturday.local:3000"
   
     func setBaseURL(_ url: String) throws {
         guard let _ = URL(string: url) else {
@@ -119,7 +127,7 @@ class DefaultAPIManager: APIManager {
         body: Data? = nil
     ) async throws -> T {
         let baseURL = try getBaseURL()
-        guard let url = URL(string: baseURL + "/" + path.rawValue) else {
+        guard let url = URL(string: baseURL + "/" + path.path) else {
             throw APIError.invalidURL
         }
         
@@ -155,11 +163,30 @@ class DefaultAPIManager: APIManager {
     }
 }
 
-enum APIPath: String {
-    case index = ""
+enum APIPath {
+    case index
     case songs
     case reserve
     case reserved
+    case cancelReservation(id: String)
+    case stopCurrent
+    
+    var path: String {
+        switch self {
+        case .index:
+            return ""
+        case .songs:
+            return "songs"
+        case .reserve:
+            return "reserve"
+        case .reserved:
+            return "reserved"
+        case .cancelReservation(let id):
+            return "reserved/\(id)/cancel"
+        case .stopCurrent:
+            return "current/stop"
+        }
+    }
 }
 
 enum APIMethods: String {

@@ -12,5 +12,6 @@ protocol KaraokeRepository {
     func reserveSong(_ song: Song) async throws
     func getReservedSongs() async throws -> [ReservedSong]
     func playNext() async throws
-    func cancelReservation(_ song: Song) async throws
+    func cancelReservation(_ song: ReservedSong) async throws
+    func stopCurrentlyPlaying() async throws
 }

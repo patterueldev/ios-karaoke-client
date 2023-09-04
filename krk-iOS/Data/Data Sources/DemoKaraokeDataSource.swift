@@ -58,7 +58,11 @@ class DemoKaraokeDataSource: KaraokeRepository {
         throw notImplemented()
     }
     
-    func cancelReservation(_ song: Song) async throws {
+    func cancelReservation(_ song: ReservedSong) async throws {
+        throw notImplemented()
+    }
+    
+    func stopCurrentlyPlaying() async throws {
         throw notImplemented()
     }
 }
